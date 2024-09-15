@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+export DH_COMPAT=10
+#export DH_VERBOSE=1
+
+PACKAGENAME := $(shell awk '/^Package:/ {print $$2;}' debian/control)
+
+%:
+	dh $@
+
+clean:
+	@dh_testdir
+	@dh_testroot
+	@rm -f build-stamp configure-stamp
+	-$(MAKE) clean
+	@dh_clean
+
+install: build
+	@dh_testdir
+	@dh_testroot
+	@dh_prep
+	@dh_installdirs
+	@dh_clean
+	-$(MAKE) clean
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/$(PACKAGENAME)
+
+override_dh_auto_install:
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/$(PACKAGENAME)
+
+override_dh_auto_build:

@@ -1,0 +1,27 @@
+Source: softether-vpn
+Section: net
+Priority: optional
+Maintainer: Karel Wintersky <karel.wintersky@yandex.ru>
+
+Package: softether-vpn
+Architecture: all
+Build-Depends: debhelper (>= 9)
+Depends: isc-dhcp-client, openssl, ncurses-base
+Homepage: https://www.softether.org/
+Description: multiprotocol VPN program (server daemon)
+ SoftEther is an open-source cross-platform multi-protocol VPN program.
+ .
+ SoftEther supports:
+ .
+  * SSL-VPN, OpenVPN, IPsec, L2TP, MS-SSTP, L2TPv3, EtherIP
+  * VPN over ICMP and VPN over DNS
+  * Ethernet-bridging (L2) and IP-routing (L3) over VPN
+  * Embedded dynamic DNS and NAT traversal
+  * AES 256-bit and RSA 4096-bit encryption
+  * RADIUS and NT domain user authentication
+  * X.509 client certificates
+  * Packet logging
+  * Web GUI
+ .
+ This package ships the VPN server daemon.
+ https://github.com/SoftEtherVPN/SoftEtherVPN
